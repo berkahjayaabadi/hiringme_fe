@@ -1,0 +1,22 @@
+#auth-form {
+    background-image: url('../../img/auth/auth-img-placeholder.svg');
+}
+
+
+@media (min-width: 1024px) { 
+    #auth-img{
+        background-image: url('../../img/auth/auth-img.jpg');
+    }
+
+    #auth-form {
+        background: none;
+    }
+
+    #auth-bg-overlay {
+        background-image: url('../../img/auth/auth-img-placeholder.svg');
+    }
+
+    /* input {
+        border:10px solid ;
+    } */
+ }
