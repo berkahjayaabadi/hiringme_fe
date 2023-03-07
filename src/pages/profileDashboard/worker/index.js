@@ -11,7 +11,6 @@ import { getProfileById } from "../../../redux/actions/ProfileWorker";
 //import { useDispatch, useSelector } from "react-redux";
 // import Footer from "../../../components/Footer/Footer";
 //import { getProfileById } from "../../../redux/actions/ProfileWorker";
-import { useParams } from "react-router-dom";
 
 const ProfileWorker = () => {
   const dispatch = useDispatch();
@@ -19,12 +18,12 @@ const ProfileWorker = () => {
   const { data, loading, error } = useSelector((state) => state.profileWorkers);
   // const navigate = useNavigate();
   console.log(data, "hallo");
+  const { id } = useParams();
 
   useEffect(() => {
     dispatch(getProfileById(id));
   }, [dispatch, id]);
 
-  // const { id } = useParams();
   // console.log(id);
   const [isToggled, setIsToggled] = useState(false);
   // const { data, loading, error } = useSelector((state) => state.profileWorkers);
