@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import { json, Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -23,47 +23,15 @@ const RegistWorker = () => {
       method: "POST",
       data: registForm,
     })
-<<<<<<< HEAD
-      .then((res) => {
-        console.log(res.data.data);
-        console.log(res.data.message);
-        navigate(`/login`);
-      })
-      .catch((err) => {
-        setValidate({ error: true, message: err.response.data.message });
-      });
-  };
-  const id = localStorage.getItem("@id");
-  useEffect(() => {
-    if (
-      localStorage.getItem("@userLogin") &&
-      localStorage.getItem("@company")
-    ) {
-      navigate(`/profilecompany/${id}`);
-    } else if (
-      localStorage.getItem("@userLogin") &&
-      !localStorage.getItem("@company")
-    ) {
-      navigate(`/profileworker/${id}`);
-=======
-    const [validate, setValidate] = useState({error: false, message: ''})
-    const navigate = useNavigate()
-    const handleRegist = (event)=> {
-        event.preventDefault()
-        axios({
-            url: 'http://localhost:5000/api/v1/auth/register',
-            method:"POST",
-            data: registForm
-        }).then((res)=> {
+    .then((res)=> {
             console.log(res.data.data);
             console.log(res.data.message);
                 navigate(`/login`)
         }).catch((err)=> {
             setValidate({error: true, message: err.response.data.message})
         })
->>>>>>> ca6fb8a9e189b277bd83775359d0b3c5dc75d67c
     }
-  }, []);
+  
   return (
     <>
       <div className="lg:flex lg:p-10">
@@ -192,7 +160,7 @@ const RegistWorker = () => {
       </div>
     </>
   );
-};
+            }
 
 export default RegistWorker;
 
