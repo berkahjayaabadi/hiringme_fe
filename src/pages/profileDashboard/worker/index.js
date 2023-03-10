@@ -137,7 +137,7 @@ const ProfileWorker = () => {
           <div>{isToggled ? <Experience /> : <Portofolio />}</div>
           <Link
             className="flex content-center mx-20 justify-center text-center py-3 border-4 border-indigo-900 bg-white text-secondary hover:text-white hover:bg-secondary font-semibold rounded-md lg:mt-20"
-            to={`/editprofilework/${userId}`}
+            to={`/editprofilework/:id`}
           >
             Edit Profile
           </Link>
