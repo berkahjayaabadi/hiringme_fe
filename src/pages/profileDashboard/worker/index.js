@@ -26,7 +26,6 @@ const ProfileWorker = () => {
   useEffect(() => {
     axios.get(`https://hiringmebe-production.up.railway.app/api/v1/profileDashboard/skill`)
     .then(res => {
-      console.log(res.data.data)
       setData(res.data.data)
     })
     .catch(err => console.log(err))
