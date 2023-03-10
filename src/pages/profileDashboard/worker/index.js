@@ -27,6 +27,7 @@ const ProfileWorker = () => {
     axios.get(`https://hiringmebe-production.up.railway.app/api/v1/profileDashboard/skill`)
     .then(res => {
       setData(res.data.data)
+      console.log(res.data.data)
     })
     .catch(err => console.log(err))
   }, );
