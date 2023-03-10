@@ -21,16 +21,6 @@ const ProfileWorker = () => {
 
   const [data, setData] = useState({})
   console.log(data, "hallo");
-  const userId = JSON.parse(localStorage.getItem('@useLogin').user.id)
-
-  useEffect(() => {
-    axios.get(`https://hiringmebe-production.up.railway.app/api/v1/profileDashboard/skill`)
-    .then(res => {
-      setData(res.data.data)
-      console.log(res.data.data)
-    })
-    .catch(err => console.log(err))
-  }, );
 
   // console.log(id);
   const [isToggled, setIsToggled] = useState(false);
