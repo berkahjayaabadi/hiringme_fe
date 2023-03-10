@@ -14,17 +14,15 @@ const Login = () => {
     const [validate, setValidate] = useState({error: false, message: ''})
     // const [isWorker, setIsworker] = useState(false);
     const navigate = useNavigate()
-    const handleLogin = (event)=> {
+    const handleLogin = async (event)=> {
         event.preventDefault()
-        axios({
+        await axios({
             url: 'https://hiringmebe-production.up.railway.app/api/v1/auth/login',
             method:"POST",
             data: loginForm
         }).then((res)=> {
-            console.log(res.data.data)
             const id = res.data.data.user.id;
-            localStorage.setItem('@userLogin', JSON.stringify(res.data.data.token));
-            localStorage.setItem('@id', res.data.data.user.id)
+            localStorage.setItem('@userLogin', JSON.stringify(res.data.data));
             if(!res.data.data.user.company == "" || undefined || null) {
                 localStorage.setItem('@company', JSON.stringify(res.data.data.user.company));
             };
@@ -35,7 +33,7 @@ const Login = () => {
                 navigate(`/profileworker/${id}`)
             }
         }).catch((err)=> {
-            setValidate({error: true, message: err.response.data.message})
+            setValidate({error: true, message: err})
         })
     }
     const id = localStorage.getItem('@id');
