@@ -232,7 +232,7 @@ const RegistCompany = () => {
     const handleRegist = (event)=> {
         event.preventDefault()
         axios({
-            url: 'http://localhost:5000/api/v1/auth/register',
+            url: 'https://hiringmebe-production.up.railway.app//api/v1/auth/register',
             method:"POST",
             data: registForm
         }).then((res)=> {
