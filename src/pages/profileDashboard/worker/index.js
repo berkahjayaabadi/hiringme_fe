@@ -7,6 +7,7 @@ import Experience from "../../../components/workExperience";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getProfileById } from "../../../redux/actions/ProfileWorker";
+import axios from "axios";
 
 //import { useDispatch, useSelector } from "react-redux";
 // import Footer from "../../../components/Footer/Footer";
@@ -15,14 +16,21 @@ import { getProfileById } from "../../../redux/actions/ProfileWorker";
 const ProfileWorker = () => {
   const dispatch = useDispatch();
 
-  const { data, loading, error } = useSelector((state) => state.profileWorkers);
+  // const { data, loading, error } = useSelector((state) => state.profileWorkers);
   // const navigate = useNavigate();
+
+  const [data, setData] = useState({})
   console.log(data, "hallo");
-  const { id } = useParams();
+  const userId = JSON.parse(localStorage.getItem('@useLogin').user.id)
 
   useEffect(() => {
-    dispatch(getProfileById(id));
-  }, [dispatch, id]);
+    axios.get(`https://hiringmebe-production.up.railway.app/api/v1/profileDashboard/skill`)
+    .then(res => {
+      console.log(res.data.data)
+      setData(res.data.data)
+    })
+    .catch(err => console.log(err))
+  }, );
 
   // console.log(id);
   const [isToggled, setIsToggled] = useState(false);
