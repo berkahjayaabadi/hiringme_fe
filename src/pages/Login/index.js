@@ -17,7 +17,7 @@ const Login = () => {
     const handleLogin = async (event)=> {
         event.preventDefault()
         await axios({
-            url: 'https://hiringmebe-production.up.railway.app/api/v1/auth/login',
+            url: 'https://gas-crack-production.up.railway.app/api/v1/auth/loginworker',
             method:"POST",
             data: loginForm
         }).then((res)=> {
