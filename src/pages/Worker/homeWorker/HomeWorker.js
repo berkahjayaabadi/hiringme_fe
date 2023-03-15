@@ -17,7 +17,7 @@ const HomeWorker = () => {
   }, []);
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <header className="bg-secondary ">
         <section className="container max-w-5xl mx-auto">
           <h1 className="text-white font-extrabold text-start text-xl p-6">
@@ -74,14 +74,14 @@ const HomeWorker = () => {
               <figure>
                 <img
                   className="h-28 w-28 shadow-xl mr-20 p-2"
-                  src=""
+                  src={`http://localhost:5000/public/uploads/Images/${item.image}`}
                   alt="Shoes"
                 />
               </figure>
               <div className="card-body p-2">
-                <h2 className="card-title">{item.name}</h2>
+                <h2 className="card-title">{item.company_name}</h2>
                 <p>{item.email}</p>
-                <p>🏠 </p>
+                <p>🏠 {item.address}</p>
                 <div className="flex flex-row justify-end px-4">
                   <h1 className="bg-primary rounded-lg  text-sm">
                     More Information ▷▷▷

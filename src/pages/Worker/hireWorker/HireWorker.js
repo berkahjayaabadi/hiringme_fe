@@ -1,49 +1,26 @@
 import React from "react";
 // import axios from "axios";
 import Navbar from "../../../components/Navbar/Navbar";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import Footer from "../../../components/Footer/Footer";
-import { getCompanyById } from "../../../redux/actions/ProfileCmpny";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const HireWorker = () => {
-  // const [data, setProduct] = React.useState([]);
-
-  // const { id } = useParams();
-
-  // // const navigate = useNavigate();
-
-  // const getCompanyById = (id) => {
-  //   return axios.get(`http://localhost:5000/api/v1/auth/users/${id}`);
-  // };
-
-  // React.useEffect(() => {
-  //   getCompanyById(id)
-  //     .then((response) => {
-  //       // data yang diterima dari server
-  //       setProduct(response.data.data);
-  //       console.log(response.data.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [id]);
-  const dispatch = useDispatch();
-
-  const { data, loading, error } = useSelector((state) => state.profileCompany);
-  console.log(data, "Halo");
-  console.log(loading, "Loading");
-  console.log(error, "Error");
-  // console.log(loading);
+  const [company, setCompany] = useState([]);
   const { id } = useParams();
-  console.log(id, "ini id");
-
+  const getProfileCompanyById = (id) => {
+    return axios.get(`http://localhost:5000/api/v1/company/${id}`);
+  };
   useEffect(() => {
-    dispatch(getCompanyById(id));
-  }, [dispatch, id]);
-
-  // if (loading) return <div>Loading...</div>;
+    getProfileCompanyById(id)
+      .then((response) => {
+        // data yang diterima dari server
+        setCompany(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
   return (
     <div>
       <navbar className="shadow-lg">
@@ -54,43 +31,28 @@ const HireWorker = () => {
           <div className="flex flex-col md:text-start lg:text-start sm:text-center min-[320px]:text-center">
             <img
               className="h-40 w-40  rounded-full shadow-xl mx-auto"
-              src="https://placeimg.com/200/280/arch"
+              src={`http://localhost:5000/public/uploads/Images/${company.image}`}
               alt="profil"
             ></img>
             <h1 className="font-semibold text-2xl text-header mt-4">
-              {data?.name}
+              {company.company_name}
             </h1>
             <h1 className="font-semibold text-lg text-header mt-2">
-              Web Development
+              {company.company_sector}
             </h1>
-            <h1 className="text-pale mt-2">🏠 {data?.email}</h1>
-            <h1 className="text-pale mt-2">📞 {data?.phone}</h1>
-            <p className="text-pale mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum erat orci, mollis nec gravida sed, ornare quis urna.
-              Curabitur eu lacus fringilla, vestibulum risus at.
-            </p>
-          </div>
-          <div className="flex flex-col md:text-start lg:text-start sm:text-center min-[320px]:text-center">
-            <h1 className="font-semibold text-2xl text-header mt-4">Skill</h1>
-            <div className="grid grid-cols-3 gap-1 mt-2">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                <div className="bg-primary text-white rounded-lg m-auto p-1 ">
-                  JavaScripts
-                </div>
-              ))}
-            </div>
+            <h1 className="text-pale mt-2">🏠 {company.address}</h1>
+            <h1 className="text-pale mt-2">📞 {company.phone}</h1>
+            <p className="text-pale mt-2">{company.bio}</p>
+            <h1 className="text-pale mt-2">Instagram : {company.instagram}</h1>
+            <h1 className="text-pale mt-2">linkedin : {company.linkedin}</h1>
           </div>
         </section>
         <section className="lg:basis-[70%] md:basis-[70%] sm:basis-0 min-[320px]:basis-0">
           <div className="lg:ml-12 md:ml-12 sm:mt-12 min-[320px]:mt-12 md:text-start lg:text-start sm:text-center min-[320px]:text-center">
             <h1 className="font-semibold text-4xl text-header ">
-              {data?.name}
+              {company.company_name}
             </h1>
-            <p className="mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              euismod ipsum et dui rhoncus auctor.
-            </p>
+            <p className="mt-2">{company.bio}</p>
           </div>
           <form className="lg:ml-12 md:ml-12 sm:mt-12 min-[320px]:mt-12 md:text-start lg:text-start sm:text-center min-[320px]:text-center">
             <div className=" mt-12 ">
