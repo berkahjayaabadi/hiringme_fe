@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   HomeCompany,
   LandingPages,
-  Login,
   HomeWorker,
   HireWorker,
   HireCompany,
@@ -18,6 +17,8 @@ import "./assets/css/index.css";
 import configureStore from "./redux/store";
 import { Provider } from "react-redux";
 import ForgotPassword from "./pages/forgotPassword";
+import LoginWorker from "./pages/Login/loginWorker";
+import LoginCompany from "./pages/Login/loginCompany";
 
 const App = () => {
   const { store } = configureStore();
@@ -30,7 +31,8 @@ const App = () => {
           <Route path="/homeworker" element={<HomeWorker />} />
           <Route path="/hireworker/:id" element={<HireWorker />} />
           <Route path="/hirecompany/:id" element={<HireCompany />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/loginworker" element={<LoginWorker />} />
+          <Route path="/logincompany" element={<LoginCompany />} />
           <Route path="/editprofilework/:id" element={<EditProfileWrk />} />
           <Route path="/editprofilecompany/:id" element={<EditProfilCmpny />} />
           <Route path="/registworker" element={<RegistWorker />} />

@@ -1,6 +1,7 @@
 import HomeCompany from "./Company/homeCompany/HomeCompany";
 import LandingPages from "./landingPages/LandingPages";
-import Login from "./Login";
+import LoginCompany from "./Login/loginCompany";
+import LoginWorker from "./Login/loginWorker";
 import HomeWorker from "./Worker/homeWorker/HomeWorker";
 import HireWorker from "./Worker/hireWorker/HireWorker";
 import HireCompany from "./Company/hireCompany/HireCompany";
@@ -12,9 +13,10 @@ import ProfileWorker from "./profileDashboard/worker";
 import ProfileCompany from "./profileDashboard/company";
 
 export {
+  LoginWorker,
+  LoginCompany,
   LandingPages,
   HomeCompany,
-  Login,
   HomeWorker,
   HireWorker,
   HireCompany,

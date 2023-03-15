@@ -19,14 +19,14 @@ const RegistWorker = () => {
   const handleRegist = (event) => {
     event.preventDefault();
     axios({
-      url: "http://localhost:5000/api/v1/auth/register",
+      url: "https://gas-crack-production.up.railway.app/api/v1/auth/registerworker",
       method: "POST",
       data: registForm,
     })
     .then((res)=> {
             console.log(res.data.data);
             console.log(res.data.message);
-                navigate(`/login`)
+                navigate(`/loginworker`)
         }).catch((err)=> {
             setValidate({error: true, message: err.response.data.message})
         })
