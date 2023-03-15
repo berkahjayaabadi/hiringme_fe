@@ -8,8 +8,8 @@ import EditProfileWrk from "./Worker/editprofileworker/EditProfileWrk";
 import EditProfilCmpny from "./Company/editprofilcompany/EditProfilCmpny";
 import RegistWorker from "./register/worker";
 import RegistCompany from "./register/company";
-import ProfileWorker from "./profileDashboard/worker";
-import ProfileCompany from "./profileDashboard/company";
+// import ProfileWorker from "./Worker/profileWorker/profileWorker";
+import ProfileCompany from "./Company/profileCompany/profileCompany";
 
 export {
   LandingPages,
@@ -22,6 +22,6 @@ export {
   EditProfileWrk,
   RegistWorker,
   RegistCompany,
-  ProfileWorker,
-  ProfileCompany
+  // ProfileWorker,
+  ProfileCompany,
 };

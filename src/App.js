@@ -11,7 +11,7 @@ import {
   EditProfilCmpny,
   RegistWorker,
   RegistCompany,
-  ProfileWorker,
+  // ProfileWorker,
   ProfileCompany,
 } from "./pages";
 import "./assets/css/index.css";
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/registworker" element={<RegistWorker />} />
           <Route path="/registcompany" element={<RegistCompany />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/profileworker/:id" element={<ProfileWorker />} />
+          {/* <Route path="/profileworker/:id" element={<ProfileWorker />} /> */}
           <Route path="/profilecompany/:id" element={<ProfileCompany />} />
         </Routes>
       </BrowserRouter>
