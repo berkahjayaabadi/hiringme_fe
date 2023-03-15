@@ -24,7 +24,7 @@ export const getAllCompany = () => {
   return (dispatch) => {
     dispatch(getAllCompanyRequest());
     return axios
-      .get(`http://localhost:5000/api/v1/auth/users`)
+      .get(`http://localhost:5000/api/v1/company`)
       .then((res) => {
         dispatch(getAllCompanySuccess(res.data.data));
       })

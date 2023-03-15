@@ -1,20 +1,15 @@
 import React from "react";
 import Navbar from "../../../components/Navbar/Navbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../components/Footer/Footer";
 import { getAllProfile } from "../../../redux/actions/ProfileWorker";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const HomeCompany = () => {
   const { data, loading, error } = useSelector((state) => state.profileWorkers);
   const navigate = useNavigate();
-  console.log(data, "Halo");
-  console.log(loading);
-
-  // const goDetail = (id) => {
-  //   navigate(`/hirecompany/${id}`);
-  // };
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -80,7 +75,7 @@ const HomeCompany = () => {
                 <figure>
                   <img
                     className="h-28 w-28 shadow-xl mr-20 p-2"
-                    src=""
+                    src={`http://localhost:5000/public/uploads/Images/${item.image}`}
                     alt="Shoes"
                   />
                 </figure>
