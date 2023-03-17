@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Login = () => {
+const LoginCompany = () => {
 
     const [loginForm, setLoginForm] = useState({
         email: '',
@@ -17,7 +17,7 @@ const Login = () => {
     const handleLogin = async (event)=> {
         event.preventDefault()
         await axios({
-            url: 'https://hiringmebe-production.up.railway.app/api/v1/auth/login',
+            url: 'https://gas-crack-production.up.railway.app/api/v1/auth/logincompany',
             method:"POST",
             data: loginForm
         }).then((res)=> {
@@ -100,4 +100,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginCompany
