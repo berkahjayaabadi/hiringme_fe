@@ -11,9 +11,11 @@ import RegistWorker from "./register/worker";
 import RegistCompany from "./register/company";
 import ProfileWorker from "./profileDashboard/worker";
 import ProfileCompany from "./profileDashboard/company";
+import Chat from "./chat";
 
 export {
   LoginWorker,
+  Chat,
   LoginCompany,
   LandingPages,
   HomeCompany,
