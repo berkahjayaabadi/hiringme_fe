@@ -9,7 +9,9 @@ const HireWorker = () => {
   const [company, setCompany] = useState([]);
   const { id } = useParams();
   const getProfileCompanyById = (id) => {
-    return axios.get(`http://localhost:5000/api/v1/company/${id}`);
+    return axios.get(
+      `https://gas-crack-production.up.railway.app/api/v1/company/${id}`
+    );
   };
   useEffect(() => {
     getProfileCompanyById(id)
@@ -31,7 +33,7 @@ const HireWorker = () => {
           <div className="flex flex-col md:text-start lg:text-start sm:text-center min-[320px]:text-center">
             <img
               className="h-40 w-40  rounded-full shadow-xl mx-auto"
-              src={`http://localhost:5000/public/uploads/Images/${company.image}`}
+              src={`https://gas-crack-production.up.railway.app/public/uploads/images/${company.image}`}
               alt="profil"
             ></img>
             <h1 className="font-semibold text-2xl text-header mt-4">

@@ -19,10 +19,14 @@ const ProfileWorker = () => {
   const [skill, setSkill] = useState([]);
   const { id } = useParams();
   const getProfileWorkerById = (id) => {
-    return axios.get(`http://localhost:5000/api/v1/users/${id}`);
+    return axios.get(
+      `https://gas-crack-production.up.railway.app/api/v1/users/${id}`
+    );
   };
   const getSkillWorkerById = (id) => {
-    return axios.get(`http://localhost:5000/api/v1/skills/${id}`);
+    return axios.get(
+      `https://gas-crack-production.up.railway.app/api/v1/skills/${id}`
+    );
   };
 
   useEffect(() => {
@@ -55,7 +59,7 @@ const ProfileWorker = () => {
           <div className="flex flex-col mb-7 md:text-start lg:text-start sm:text-center min-[320px]:text-center">
             <img
               className="h-40 w-40  rounded-full shadow-xl mx-auto"
-              src={`http://localhost:5000/public/uploads/Images/${worker.image}`}
+              src={`https://gas-crack-production.up.railway.app/public/uploads/images/${worker.image}`}
               alt="profil"
             ></img>
             <h1 className="font-semibold text-2xl text-header mt-4">
@@ -71,7 +75,7 @@ const ProfileWorker = () => {
 
           <Link
             className="flex content-center justify-center px-40 py-5 border border-white bg-white text-secondary rounded-md font-bold  hover:text-white hover:bg-indigo-900 lg:w-full lg:text-white lg:bg-secondary"
-            to="/hirecompany"
+            to={`/hirecompany/${id}`}
           >
             Hire
           </Link>

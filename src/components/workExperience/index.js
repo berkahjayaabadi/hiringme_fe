@@ -7,7 +7,9 @@ const Experience = () => {
   const [experience, setExperience] = useState([]);
   const { id } = useParams();
   const getExperienceById = (id) => {
-    return axios.get(`http://localhost:5000/api/v1/experience/${id}`);
+    return axios.get(
+      `https://gas-crack-production.up.railway.app/api/v1/experience/${id}`
+    );
   };
 
   useEffect(() => {

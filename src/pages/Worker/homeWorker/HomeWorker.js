@@ -74,7 +74,7 @@ const HomeWorker = () => {
               <figure>
                 <img
                   className="h-28 w-28 shadow-xl mr-20 p-2"
-                  src={`http://localhost:5000/public/uploads/Images/${item.image}`}
+                  src={`https://gas-crack-production.up.railway.app/public/uploads/images/${item.image}`}
                   alt="Shoes"
                 />
               </figure>

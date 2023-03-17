@@ -6,7 +6,9 @@ const Portofolio = () => {
   const [portfolio, setPortfolio] = useState([]);
   const { id } = useParams();
   const getPortfolioById = (id) => {
-    return axios.get(`http://localhost:5000/api/v1/portfolio/${id}`);
+    return axios.get(
+      `https://gas-crack-production.up.railway.app/api/v1/portfolio/${id}`
+    );
   };
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const Portofolio = () => {
           <div>
             <img
               className="h-35 w-40   shadow-xl mx-auto"
-              src={`http://localhost:5000/public/uploads/Images/${item.portfolio_image}`}
+              src={`https://gas-crack-production.up.railway.app/public/uploads/images/${item.portfolio_image}`}
               alt="profil"
             ></img>
             <div className=" mx-auto text-center font-semibold mt-2 ">
