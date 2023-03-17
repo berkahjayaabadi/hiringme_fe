@@ -27,11 +27,7 @@ const LoginCompany = () => {
                 localStorage.setItem('@company', JSON.stringify(res.data.data.user.company));
             };
 
-            if(localStorage.getItem('@userLogin') && localStorage.getItem('@company')) {    
-                navigate(`/profilecompany/${id}`)
-            } else if(localStorage.getItem('@userLogin') && !localStorage.getItem('@company')) {
-                navigate(`/profileworker/${id}`)
-            }
+            navigate(`/homecompany`)
         }).catch((err)=> {
             setValidate({error: true, message: err})
         })
