@@ -8,14 +8,13 @@ import { useParams } from "react-router-dom";
 
 const NavbaraftrLogin = ({ setIsLogin }) => {
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!localStorage.getItem("@userLogin")) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("@userLoginWorker") || !localStorage.getItem('@userLoginCompany')) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const { data, loading, error } = useSelector((state) => state.profileWorkers);
-  console.log(data);
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -104,14 +103,8 @@ const NavbaraftrLogin = ({ setIsLogin }) => {
               </li>
               <li
                 onClick={() => {
-                  localStorage.removeItem("@company");
-                  localStorage.removeItem("@userLogin");
-                  localStorage.removeItem("@token");
-                  localStorage.removeItem("@userCompany");
-                  localStorage.removeItem("@id");
-                  // localStorage.removeItem("@token");
-                  // localStorage.removeItem("@userCompany");
-                  // localStorage.removeItem("@ompany");
+                  localStorage.removeItem('@userLoginCompany')
+                  localStorage.removeItem('@userLoginWorker')
                   setIsLogin(false);
                 }}
               >

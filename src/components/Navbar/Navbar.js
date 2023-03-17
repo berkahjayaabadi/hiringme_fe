@@ -5,7 +5,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      {localStorage.getItem("@userLogin") ? (
+      {localStorage.getItem("@userLoginCompany") || localStorage.getItem('@userLoginWorker')  ? (
         <NavbaraftrLogin />
       ) : (
         <NavbarBfrLogin />

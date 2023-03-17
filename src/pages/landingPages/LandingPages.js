@@ -4,8 +4,19 @@ import Footer from "../../components/Footer/Footer";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 import hero3 from "../../assets/images/hero3.png";
+import { useNavigate } from "react-router-dom";
 
 const LandingPages = () => {
+
+  const navigate = useNavigate()
+
+  const handleHome = () => {
+    if(localStorage.getItem('@userLoginCompany')) {
+      navigate('/homecompany')
+    } else {
+      navigate('/homeworker')
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -18,7 +29,7 @@ const LandingPages = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
             ipsum et dui rhoncus auctor.
           </p>
-          <button className="btn bg-secondary mt-8">Mulai Dari Sekarang</button>
+          <button onClick={handleHome} className="btn bg-secondary mt-8">Mulai Dari Sekarang</button>
         </section>
         <section className="basis-[50%] bg-cover bg- w-full h-full ">
           {" "}

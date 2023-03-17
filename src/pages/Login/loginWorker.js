@@ -22,7 +22,7 @@ const LoginWorker = () => {
             data: loginForm
         }).then((res)=> {
             const id = res.data.data.user.id;
-            localStorage.setItem('@userLogin', JSON.stringify(res.data.data));
+            localStorage.setItem('@userLoginWorker', JSON.stringify(res.data.data));
             if(!res.data.data.user.company == "" || undefined || null) {
                 localStorage.setItem('@company', JSON.stringify(res.data.data.user.company));
             };
@@ -35,10 +35,10 @@ const LoginWorker = () => {
     const id = localStorage.getItem('@id');
 
     useEffect(()=> {
-        if(localStorage.getItem('@userLogin') && localStorage.getItem('@company')) {    
-            navigate('/profilecompany/'+id)
-        } else if(localStorage.getItem('@userLogin') && !localStorage.getItem('@company')) {
-            navigate(`/profileworker/${id}`)
+        if(localStorage.getItem('@userLoginWorker')) {    
+            navigate('/homeworker')
+        } else if(localStorage.getItem('@userLoginCompany')) {
+            navigate(`/homecompany/${id}`)
         }
     },[])
 
