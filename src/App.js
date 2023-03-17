@@ -19,6 +19,7 @@ import { Provider } from "react-redux";
 import ForgotPassword from "./pages/forgotPassword";
 import LoginWorker from "./pages/Login/loginWorker";
 import LoginCompany from "./pages/Login/loginCompany";
+import Chat from "./pages/chat";
 
 const App = () => {
   const { store } = configureStore();
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/profileworker/:id" element={<ProfileWorker />} />
           <Route path="/profilecompany/:id" element={<ProfileCompany />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
     </Provider>
