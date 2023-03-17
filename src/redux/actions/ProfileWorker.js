@@ -25,7 +25,7 @@ export const getAllProfile = () => {
   return (dispatch) => {
     dispatch(getAllprofileRequest());
     return axios
-      .get(`http://localhost:5000/api/v1/users`)
+      .get(`https://gas-crack-production.up.railway.app/api/v1/users`)
       .then((res) => {
         dispatch(getAllProfileSuccess(res.data.data));
       })
@@ -62,7 +62,7 @@ export const getProfileById = (id) => {
   return (dispatch) => {
     dispatch(getProfileByIdRequest(id));
     return axios
-      .get(`http://localhost:5000/api/v1/users/${id}`)
+      .get(`https://gas-crack-production.up.railway.app/api/v1/users/${id}`)
       .then((res) => {
         dispatch(getProfileByIdSuccess(res.data.data));
       })

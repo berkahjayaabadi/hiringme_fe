@@ -1,7 +1,9 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import heroimg from "../../assets/img/landing/heroimg.svg";
+import hero1 from "../../assets/images/hero1.png";
+import hero2 from "../../assets/images/hero2.png";
+import hero3 from "../../assets/images/hero3.png";
 
 const LandingPages = () => {
   return (
@@ -18,14 +20,25 @@ const LandingPages = () => {
           </p>
           <button className="btn bg-secondary mt-8">Mulai Dari Sekarang</button>
         </section>
-        <section
-          className="basis-[50%] bg-cover w-full "
-          style={{ background: `url${heroimg} no-repeat` }}
-        ></section>
+        <section className="basis-[50%] bg-cover bg- w-full h-full ">
+          {" "}
+          <img
+            className="h-full w-full   shadow-xl mx-auto"
+            src={hero1}
+            alt="profil"
+          ></img>
+        </section>
       </header>
       <main className="container max-w-5xl mx-auto">
         <section className=" flex min-[320px]:flex-col md:flex-row lg:flex-row sm:flex-col mt-6">
-          <div className="basis-[50%] bg-cover  w-full "></div>
+          <div className="basis-[50%] bg-cover bg- w-full h-full ">
+            {" "}
+            <img
+              className="h-full w-full   shadow-xl mx-auto"
+              src={hero2}
+              alt="profil"
+            ></img>
+          </div>
           <div className="basis-[50%]">
             <h1 className="text-text text-3xl font-semibold mt-12">
               Kenapa harus mencari tallent <br /> di peworld
@@ -62,7 +75,14 @@ const LandingPages = () => {
               </ul>
             </div>
           </div>
-          <div className="basis-[50%] bg-cover  w-full "></div>
+          <div className="basis-[50%] bg-cover bg- w-full h-full ">
+            {" "}
+            <img
+              className="h-full w-full   shadow-xl mx-auto"
+              src={hero3}
+              alt="profil"
+            ></img>
+          </div>
         </section>
         <section className="text-text text-3xl font-semibold mt-12">
           <h1 className="text-center">Their opinion about peworld </h1>

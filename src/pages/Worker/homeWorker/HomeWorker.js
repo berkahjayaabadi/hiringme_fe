@@ -7,9 +7,9 @@ import { getAllCompany } from "../../../redux/actions/ProfileCmpny";
 import { useNavigate } from "react-router-dom";
 
 const HomeWorker = () => {
-  const { data, loading, error } = useSelector((state) => state.profileCompany);
-  console.log(data, "Halo");
-  console.log(loading);
+  const { data } = useSelector((state) => state.profileCompany);
+  // console.log(data, "Halo");
+  // console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -74,7 +74,7 @@ const HomeWorker = () => {
               <figure>
                 <img
                   className="h-28 w-28 shadow-xl mr-20 p-2"
-                  src={`http://localhost:5000/public/uploads/Images/${item.image}`}
+                  src={`https://gas-crack-production.up.railway.app/public/uploads/images/${item.image}`}
                   alt="Shoes"
                 />
               </figure>
@@ -114,6 +114,7 @@ const HomeWorker = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

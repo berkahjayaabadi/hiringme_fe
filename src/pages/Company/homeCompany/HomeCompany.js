@@ -1,14 +1,13 @@
 import React from "react";
 import Navbar from "../../../components/Navbar/Navbar";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../components/Footer/Footer";
 import { getAllProfile } from "../../../redux/actions/ProfileWorker";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const HomeCompany = () => {
-  const { data, loading, error } = useSelector((state) => state.profileWorkers);
+  const { data } = useSelector((state) => state.profileWorkers);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -70,12 +69,12 @@ const HomeCompany = () => {
               <div
                 key={item.user_id}
                 className="card bg-base-100 shadow-xl  hover:cursor-pointer p-2"
-                onClick={() => navigate(`/hirecompany/${item.id}`)}
+                onClick={() => navigate(`/profilecompany/${item.id}`)}
               >
                 <figure>
                   <img
                     className="h-28 w-28 shadow-xl mr-20 p-2"
-                    src={`http://localhost:5000/public/uploads/Images/${item.image}`}
+                    src={`https://gas-crack-production.up.railway.app/public/uploads/images/${item.image}`}
                     alt="Shoes"
                   />
                 </figure>
@@ -84,12 +83,8 @@ const HomeCompany = () => {
                   <p>{item.email}</p>
                   <p>🏠 {item.address}</p>
                   <div className="flex flex-row justify-center px-4">
-                    <h1 className="bg-primary rounded-lg p-1 mx-1">
-                      {item?.skills?.[0]?.skill_name}
-                    </h1>
-                    <h1 className="bg-primary rounded-lg p-1 mx-1">
-                      {item?.skills?.[1]?.skill_name}
-                    </h1>
+                    <h1 className="bg-primary rounded-lg p-1 mx-1"></h1>
+                    <h1 className="bg-primary rounded-lg p-1 mx-1"></h1>
                     <h1 className="p-1">more</h1>
                   </div>
                 </div>

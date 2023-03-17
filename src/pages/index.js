@@ -26,6 +26,6 @@ export {
   EditProfileWrk,
   RegistWorker,
   RegistCompany,
-  ProfileWorker,
-  ProfileCompany
+  // ProfileWorker,
+  ProfileCompany,
 };
