@@ -8,7 +8,9 @@ import Experience from "../../../components/workExperience";
 // import { useSelector } from "react-redux";
 // import { getProfileById } from "../../../redux/actions/ProfileWorker";
 import axios from "axios";
-
+import {AiOutlinePhone} from 'react-icons/ai'
+import {IoLocationOutline} from 'react-icons/io'
+import {CiLocationOn} from 'react-icons/ci'
 //import { useDispatch, useSelector } from "react-redux";
 // import Footer from "../../../components/Footer/Footer";
 //import { getProfileById } from "../../../redux/actions/ProfileWorker";
@@ -17,6 +19,7 @@ const ProfileWorker = () => {
   const [isToggled, setIsToggled] = useState(false);
   const [worker, setWorker] = useState([]);
   const [skill, setSkill] = useState([]);
+  const [active, setActive] = useState('Portofolio')
   const { id } = useParams();
   const getProfileWorkerById = (id) => {
     return axios.get(
@@ -28,6 +31,10 @@ const ProfileWorker = () => {
       `https://gas-crack-production.up.railway.app/api/v1/skills/${id}`
     );
   };
+
+  const handleActive = (e) => {
+    setActive(e.target.innerText)
+  }
 
   useEffect(() => {
     getProfileWorkerById(id)
@@ -68,8 +75,8 @@ const ProfileWorker = () => {
             <h1 className="font-semibold text-lg text-header mt-2">
               {worker.jobType}
             </h1>
-            <h1 className="text-pale mt-2">🏠 {worker.address} </h1>
-            <h1 className="text-pale mt-2">📞 {worker.phone}</h1>
+            <h1 className="text-pale mt-2 flex item-center"><CiLocationOn size={25} className='mr-3 font-bold'/> {worker.address} </h1>
+            <h1 className="text-pale mt-2 flex items-center "><AiOutlinePhone size={25} className="mr-3" /> {worker.phone}</h1>
             <p className="text-pale mt-2">{worker.bio}</p>
           </div>
 
@@ -84,7 +91,7 @@ const ProfileWorker = () => {
             <h1 className="font-semibold text-2xl text-header mt-4">Skill</h1>
             <div className="grid grid-cols-3 gap-1 mt-2">
               {skill.map((item) => (
-                <div className="bg-primary text-white rounded-lg m-auto p-1 ">
+                <div className="bg-primary text-white px-3 py-1 rounded-lg m-auto p-1 ">
                   {item.skill_name}
                 </div>
               ))}
@@ -110,24 +117,24 @@ const ProfileWorker = () => {
         <div className=" bg-white mb-32 lg:grow rounded-lg min-h-[40vh]">
           <div
             id="portoexperience"
-            className="flex justify-evenly lg:justify-start lg:gap-2"
+            className="flex justify-evenly lg:justify-start lg:gap-2 p-3" 
           >
             <button
               id="portofolio"
-              onClick={() => setIsToggled(false)}
-              className="pr-5 font-bold text-header border-b-4 border-secondary "
+              onClick={handleActive}
+              className={active === 'Portofolio' ? "pr-5 font-bold text-header border-b-4 border-secondary " : "pr-5 font-bold text-header border-b-4 border-transparent "}
             >
               Portofolio
             </button>
             <button
               id="experience"
-              onClick={() => setIsToggled(true)}
-              className="font-bold border-b-4 text-header border-secondary"
+              onClick={handleActive}
+              className={active === 'Pengalaman Kerja' ? "pr-5 font-bold text-header border-b-4 border-secondary " : "pr-5 font-bold text-header border-b-4 border-transparent "}
             >
               Pengalaman Kerja
             </button>
           </div>
-          <div>{isToggled ? <Experience /> : <Portofolio />}</div>
+          <div>{active === 'Pengalaman Kerja' ? <Experience /> : <Portofolio />}</div>
         </div>
       </div>
 

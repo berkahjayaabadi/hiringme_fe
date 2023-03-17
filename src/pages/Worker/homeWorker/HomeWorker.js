@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../../components/Footer/Footer";
 import { getAllCompany } from "../../../redux/actions/ProfileCmpny";
 import { useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai'
 
 const HomeWorker = () => {
   const { data } = useSelector((state) => state.profileCompany);
-  // console.log(data, "Halo");
-  // console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,7 +25,7 @@ const HomeWorker = () => {
           </h1>
         </section>
       </header>
-      <main className="container max-w-5xl mx-auto flex flex-col mt-4 ">
+      <main className="container max-w-5xl mx-auto flex flex-col mt-10 ">
         <section className="flex flex-row bg-white">
           <div className="basis-[70%] border-r-2 ">
             <form className="flex items-center m-1">
@@ -80,11 +80,11 @@ const HomeWorker = () => {
               </figure>
               <div className="card-body p-2">
                 <h2 className="card-title">{item.company_name}</h2>
-                <p>{item.email}</p>
-                <p>🏠 {item.address}</p>
-                <div className="flex flex-row justify-end px-4">
-                  <h1 className="bg-primary rounded-lg  text-sm">
-                    More Information ▷▷▷
+                <p className="text-pale">{item.email}</p>
+                <p className="flex items-center text-pale"><FaHome  className="mr-2"/> {item.address}</p>
+                <div className=" justify-end px-4">
+                  <h1 className="bg-primary whitespace-nowrap rounded-lg px-3 text-white font-bold py-2 text-sm">
+                    More Information
                   </h1>
                 </div>
               </div>
@@ -93,9 +93,8 @@ const HomeWorker = () => {
         </section>
         <section className="self-center mt-4">
           <div className="btn-group ">
-            <button className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white mx-4">
-              ◀
-            </button>
+        <AiOutlineLeft size={50} className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white mx-4" />
+              
             <button className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white marker:mx-1">
               1
             </button>
@@ -108,9 +107,8 @@ const HomeWorker = () => {
             <button className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white mx-1">
               4
             </button>
-            <button className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white mx-4">
-              ▶
-            </button>
+        <AiOutlineRight size={50} className="btn bg-white border-[#E2E5ED] text-text hover:bg-secondary hover:text-white mx-4" />
+      
           </div>
         </section>
       </main>

@@ -22,7 +22,7 @@ const LoginCompany = () => {
             data: loginForm
         }).then((res)=> {
             const id = res.data.data.user.id;
-            localStorage.setItem('@userLogin', JSON.stringify(res.data.data));
+            localStorage.setItem('@userLoginCompany', JSON.stringify(res.data.data));
             if(!res.data.data.user.company == "" || undefined || null) {
                 localStorage.setItem('@company', JSON.stringify(res.data.data.user.company));
             };
